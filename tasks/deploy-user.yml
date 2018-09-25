@@ -1,0 +1,27 @@
+---
+
+- name: Create user
+  user:
+    name: "{{ ansible_deploy_user_name }}"
+    shell: "{{ user_shell }}"
+
+- name: Enable sudoers.d
+  lineinfile:
+    path: /etc/sudoers
+    regexp: "^#includedir /etc/sudoers.d"
+    line: "#includedir /etc/sudoers.d"
+    state: present
+    validate: visudo -cf %s
+
+- name: Enable passwordless sudo
+  copy:
+    content: "%{{ ansible_deploy_user_name }} ALL=(ALL) NOPASSWD:ALL"
+    dest: "/etc/sudoers.d/{{ ansible_deploy_user_name }}"
+    owner: root
+    group: root
+    mode: 0440
+
+- name: Set authorized_key to allow SSH key based logins
+  authorized_key:
+    user: "{{ ansible_deploy_user_name }}"
+    key: "{{ lookup('file', local_ssh_pub_key_path) }}"

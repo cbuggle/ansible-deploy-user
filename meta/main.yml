@@ -1,0 +1,22 @@
+galaxy_info:
+  author: Christian Buggle
+  description: Sets up a user with passwordless sudo & ssh login as deploy user for subsequent ansible playbooks. Provides a ansible deploy user boilerplate.
+
+  license: MIT
+
+  min_ansible_version: 2.6
+
+  # By now tested only on Ubuntu 18.04. Will probably run on any Debian.
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+
+  galaxy_tags:
+    - ansible
+    - deploy
+    - user
+    - boilerplate
+
+dependencies: []

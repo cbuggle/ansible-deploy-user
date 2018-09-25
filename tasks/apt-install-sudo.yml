@@ -1,0 +1,4 @@
+- name: Update repositories cache and install "sudo" package
+  apt:
+    name: sudo
+    update_cache: yes

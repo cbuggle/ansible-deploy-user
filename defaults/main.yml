@@ -1,0 +1,7 @@
+---
+
+ansible_deploy_user_name: "ansible_deploy"
+
+user_shell: "/bin/bash"
+
+local_ssh_pub_key_path: "~/.ssh/id_rsa.pub"
