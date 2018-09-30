@@ -1,6 +1,6 @@
 galaxy_info:
   author: Christian Buggle
-  description: Sets up a user with passwordless sudo & ssh login as deploy user for subsequent ansible playbooks. Provides a ansible deploy user boilerplate.
+  description: Creates ansible_user with passwordless sudo & ssh login, disallows root ssh access. (Boilerplate for new Ansible server)
 
   license: MIT
 
@@ -11,6 +11,8 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
+        - utopic
+        - xenial
         - bionic
 
   galaxy_tags:

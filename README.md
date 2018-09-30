@@ -1,17 +1,18 @@
 Ansible-Deploy-User
 =========
 
-This ansible role creates a user with passwordless sudo & ssh login. 
-Provides a boilerplate for an ansible managed server. 
+This ansible role creates a user with passwordless sudo & ssh login and disallows root ssh access. 
+
+Boilerplate for an ansible managed server. 
 
 Requirements
 ------------
 
-A (new) Ubuntu 18.04 (Bionic Beaver) server. 
+A (new) Ubuntu server. 
 
-Apply this role onto your freshly hired server to manage it with ansible. You need the IP address and the root password, obviously. 
+Apply this role onto your new Ubuntu server to manage it with ansible. You need the IP address and the root password, obviously. 
 
-It has been tested on Ubuntu 18.04 but will probably work on most other Linux distribution.
+It has been tested on Ubuntu 14.10, 16.04 & 18.04 but will probably work on most other Linux distribution.
 
 Installation
 ------------
@@ -38,7 +39,7 @@ Role Variables
 
 The behavior can be configured by overriding the defaults of these variables:
 
-    ansible_deploy_user_name:   "ansible_deploy"
+    ansible_user_name:          "ansible_deploy"
     user_shell:                 "/bin/bash"
     local_ssh_pub_key_path:     "~/.ssh/id_rsa.pub"
 

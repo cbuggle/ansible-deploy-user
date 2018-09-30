@@ -1,6 +1,6 @@
 ---
 
-ansible_deploy_user_name: "ansible_deploy"
+ansible_user_name: "ansible_deploy"
 
 user_shell: "/bin/bash"
 

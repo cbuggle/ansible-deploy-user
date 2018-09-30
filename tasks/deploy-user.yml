@@ -2,7 +2,7 @@
 
 - name: Create user
   user:
-    name: "{{ ansible_deploy_user_name }}"
+    name: "{{ ansible_user_name }}"
     shell: "{{ user_shell }}"
 
 - name: Enable sudoers.d
@@ -15,13 +15,13 @@
 
 - name: Enable passwordless sudo
   copy:
-    content: "%{{ ansible_deploy_user_name }} ALL=(ALL) NOPASSWD:ALL"
-    dest: "/etc/sudoers.d/{{ ansible_deploy_user_name }}"
+    content: "%{{ ansible_user_name }} ALL=(ALL) NOPASSWD:ALL"
+    dest: "/etc/sudoers.d/{{ ansible_user_name }}"
     owner: root
     group: root
     mode: 0440
 
 - name: Set authorized_key to allow SSH key based logins
   authorized_key:
-    user: "{{ ansible_deploy_user_name }}"
+    user: "{{ ansible_user_name }}"
     key: "{{ lookup('file', local_ssh_pub_key_path) }}"
