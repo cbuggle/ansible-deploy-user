@@ -5,3 +5,6 @@
 
 - name: "Create ansible deploy user"
   include: deploy-user.yml
+
+- name: "Disallow root SSH access"
+  include: disallow-root-ssh.yml

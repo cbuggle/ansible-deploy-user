@@ -11,6 +11,8 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
+        - utopic
+        - xenial
         - bionic
 
   galaxy_tags:
